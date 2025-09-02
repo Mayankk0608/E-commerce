@@ -37,6 +37,27 @@ body::before {
     box-shadow: 0 8px 32px rgba(13, 43, 29, 0.3);
     border-bottom: 1px solid rgba(174, 195, 176, 0.2);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1050 !important;
+    position: relative;
+    overflow: visible !important;
+}
+
+.dropdown {
+    position: static !important;
+    z-index: 1000 !important;
+}
+
+.nav-item.dropdown {
+    position: static !important;
+    z-index: 1000 !important;
+}
+
+.navbar-nav {
+    overflow: visible !important;
+}
+
+.navbar-collapse {
+    overflow: visible !important;
 }
 
 .navbar-brand {
@@ -55,6 +76,7 @@ body::before {
     color: #AEC3B0 !important;
     font-weight: 600;
     font-size: 1.1rem;
+    /* right: 100px; */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     padding: 12px 20px !important;
@@ -141,6 +163,7 @@ body::before {
     padding: 120px 0 60px;
     width: 100%; /* Ensure full width */
     position: relative;
+    z-index: 1;
 }
 
 .page.active {
@@ -170,6 +193,7 @@ body::before {
     color: #E3EFD3;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .hero-section::before {
@@ -187,8 +211,9 @@ body::before {
     font-size: 4.5rem;
     font-weight: 300;
     margin-bottom: 25px;
+    z-index: 1;
     text-shadow: 2px 2px 12px rgba(0,0,0,0.4);
-    color: #E3EFD3;
+    color: #ffffff;
     letter-spacing: -1px;
     background: linear-gradient(45deg, #E3EFD3, #AEC3B0, #E3EFD3);
     -webkit-background-clip: text;
@@ -505,19 +530,46 @@ body::before {
 }
 
 .dropdown-menu {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.95) !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 2px solid rgba(107, 143, 113, 0.3);
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(13, 43, 29, 0.2);
+    border: 2px solid rgba(107, 143, 113, 0.3) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 60px rgba(13, 43, 29, 0.2) !important;
     animation: elegantSlideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 10px;
+    padding: 10px !important;
+    z-index: 9999 !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 975px !important;
+    min-width: 200px !important;
+    display: none !important;
+}
+
+.dropdown-menu.show {
+    display:block !important;
+}
+
+/* Ensure Bootstrap dropdown functionality */
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+.dropdown-toggle[aria-expanded="true"]::after {
+    transform: rotate(180deg);
 }
 
 .dropdown-item {
     color: #345635;
     padding: 15px 25px;
+    /* z-index: 3; */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 12px;
     margin: 5px;

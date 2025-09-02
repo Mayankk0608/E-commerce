@@ -56,14 +56,7 @@ function filterProducts(category) {
         }
     });
 
-    // Close dropdown after selection on mobile
-    const dropdownElements = document.querySelectorAll('.dropdown-toggle');
-    dropdownElements.forEach(element => {
-        const dropdown_bs = bootstrap.Dropdown.getInstance(element);
-        if (dropdown_bs) {
-            dropdown_bs.hide();
-        }
-    });
+
 }
 
 // Authentication form toggle
@@ -140,6 +133,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize image loading effects
     addImageLoadingEffect();
     initializeLazyLoading();
+    
+    // Initialize Bootstrap dropdowns
+    const dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+    dropdownElementList.map(function (dropdownToggleEl) {
+        return new bootstrap.Dropdown(dropdownToggleEl);
+    });
     
     // Contact form submission
     const contactForm = document.getElementById('contactForm');
@@ -255,10 +254,10 @@ document.addEventListener('click', function(e) {
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(30, 60, 114, 0.98)';
+        navbar.style.background = 'rgba(13, 43, 29, 0.98)';
         navbar.style.boxShadow = '0 6px 25px rgba(0,0,0,0.2)';
     } else {
-        navbar.style.background = 'rgba(30, 60, 114, 0.95)';
+        navbar.style.background = 'rgba(13, 43, 29, 0.95)';
         navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
     }
 });
@@ -502,6 +501,12 @@ window.addEventListener('load', function() {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
     
+    // Initialize dropdowns
+    const dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+    dropdownElementList.map(function (dropdownToggleEl) {
+        return new bootstrap.Dropdown(dropdownToggleEl);
+    });
+    
     // Initialize image features
     preloadImages();
     addImageZoomFeature();
@@ -534,17 +539,7 @@ document.addEventListener('keydown', function(e) {
             document.body.removeChild(imageModal);
         }
         
-        // Close dropdowns
-        const openDropdowns = document.querySelectorAll('.dropdown-menu.show');
-        openDropdowns.forEach(dropdown => {
-            const toggle = dropdown.previousElementSibling;
-            if (toggle) {
-                const dropdownInstance = bootstrap.Dropdown.getInstance(toggle);
-                if (dropdownInstance) {
-                    dropdownInstance.hide();
-                }
-            }
-        });
+
     }
 });
 
