@@ -541,7 +541,7 @@ body::before {
     z-index: 9999 !important;
     position: absolute !important;
     top: 100% !important;
-    left: 975px !important;
+    left: 810px !important;
     min-width: 200px !important;
     display: none !important;
 }
