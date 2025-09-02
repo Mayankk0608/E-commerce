@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zee's Store - E-Commerce Website</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Ivan.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="showPage('home')">🛒 Zee's Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('about')">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="showPage('products', 'all')">🛍️ All Products</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="showPage('products', 'men')">👨 Men's Collection</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="showPage('products', 'women')">👩 Women's Collection</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="showPage('products', 'kids')">👶 Kids Collection</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('testimonials')">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('contact')">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('signup')">Sign Up/Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+        <p style="color: white; margin-top: 20px;">Loading...</p>
+    </div>
+
+    <!-- Home Page -->
+    <div class="page active" id="home">
+        <div class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="hero-title">Welcome to Zee's Store</h1>
+                        <p class="hero-subtitle">Your Ultimate E-Commerce Destination</p>
+                        <a href="#" class="btn-custom" onclick="showPage('products')">Shop Now</a>
+                        <a href="#" class="btn-custom" onclick="showPage('about')">Learn More</a>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="hero-image-placeholder">
+                            <!-- <img src="https://via.placeholder.com/400x300/2a5298/ffffff?text=Zee's Store+Hero" alt="Zee's Store Hero" class="img-fluid rounded" style="box-shadow: 0 10px 30px rgba(0,0,0,0.3);"> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Featured Products Section -->
+            <!-- <div class="category-section">
+                <div class="col-12">
+                    <h2 class="category-title">Featured Products</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-card">
+                            <img src="https://via.placeholder.com/250x200/f8f9fa/1e3c72?text=Featured+Item+1" alt="Featured Product 1" class="product-image-real">
+                            <div class="card-body text-center">
+                                <h6>Best Seller</h6>
+                                <div class="price">₹1,999</div>
+                                <a href="#" class="btn-custom btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-card">
+                            <img src="https://via.placeholder.com/250x200/f8f9fa/1e3c72?text=Featured+Item+2" alt="Featured Product 2" class="product-image-real">
+                            <div class="card-body text-center">
+                                <h6>New Arrival</h6>
+                                <div class="price">₹2,499</div>
+                                <a href="#" class="btn-custom btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-card">
+                            <img src="https://via.placeholder.com/250x200/f8f9fa/1e3c72?text=Featured+Item+3" alt="Featured Product 3" class="product-image-real">
+                            <div class="card-body text-center">
+                                <h6>Top Rated</h6>
+                                <div class="price">₹1,799</div>
+                                <a href="#" class="btn-custom btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="product-card">
+                            <img src="https://via.placeholder.com/250x200/f8f9fa/1e3c72?text=Featured+Item+4" alt="Featured Product 4" class="product-image-real">
+                            <div class="card-body text-center">
+                                <h6>Special Offer</h6>
+                                <div class="price">₹1,299</div>
+                                <a href="#" class="btn-custom btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="row category-section">
+                <div class="col-12">
+                    <h2 class="category-title">Browse Categories</h2>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card" onclick="showPage('products', 'men')">
+                        <img src="Uploads/Men1.jpeg" alt="Men's Collection" class="product-image-real">
+                        <div class="card-body text-center">
+                            <h5>Men's Collection</h5>
+                            <p>Discover the latest trends in men's fashion</p>
+                            <span class="btn-custom">Browse Men's</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card" onclick="showPage('products', 'women')">
+                        <img src="Uploads/Girl1.jpeg" alt="Women's Collection" class="product-image-real">
+                        <div class="card-body text-center">
+                            <h5>Women's Collection</h5>
+                            <p>Elegant and stylish women's clothing</p>
+                            <span class="btn-custom">Browse Women's</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-card" onclick="showPage('products', 'kids')">
+                        <img src="Uploads/Kids.jpg" alt="Kids Collection" class="product-image-real">
+                        <div class="card-body text-center">
+                            <h5>Kids Collection</h5>
+                            <p>Fun and comfortable clothing for kids</p>
+                            <span class="btn-custom">Browse Kids</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Partners Section -->
+            <!-- <div class="category-section">
+                <div class="col-12">
+                    <h2 class="category-title">Our Brand Partners</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-4 text-center mb-3">
+                        <img src="https://via.placeholder.com/120x80/ffffff/1e3c72?text=Brand+1" alt="Brand Partner 1" class="img-fluid" style="max-height: 60px; opacity: 0.7; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                    </div>
+                    <div class="col-md-2 col-4 text-center mb-3">
+                        <img src="https://via.placeholder.com/120x80/ffffff/1e3c72?text=Brand+2" alt="Brand Partner 2" class="img-fluid" style="max-height: 60px; opacity: 0.7; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                    </div>
+                    <div class="col-md-2 col-4 text-center mb-3">
+                        <img src="https://via.placeholder.com/120x80/ffffff/1e3c72?text=Brand+3" alt="Brand Partner 3" class="img-fluid" style="max-height: 60px; opacity: 0.7; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                    </div>
+                    <div class="col-md-2 col-4 text-center mb-3">
+                        <img src="https://via.placeholder.com/120x80/ffffff/1e3c72?text=Brand+4" alt="Brand Partner 4" class="img-fluid" style="max-height: 60px; opacity: 0.7; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                    </div>
+                    <div class="col-md-2 col-4 text-center mb-3">
+                        <img src="https://via.placeholder.com/120x80/ffffff/1e3c72?text=Brand+5" alt="Brand Partner 5" class="img-fluid" style="max-height: 60px; opacity: 0.7; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                    </div>
+                    <div class="col-md-2 col-4 text-center mb-3">
+                        <img src="https://via.placeholder.com/120x80/ffffff/1e3c72?text=Brand+6" alt="Brand Partner 6" class="img-fluid" style="max-height: 60px; opacity: 0.7; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- About Us Page -->
+    <div class="page" id="about">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li class="breadcrumb-item active">About Us</li>
+                </ol>
+            </nav>
+            
+            <div class="hero-section">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="hero-title">About Zee's Store</h1>
+                        <p class="hero-subtitle">Your Trusted E-Commerce Partner Since 2020</p>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- <img src="https://via.placeholder.com/400x300/ffd700/1e3c72?text=About+Us" alt="About Zee's Store" class="img-fluid rounded" style="box-shadow: 0 10px 30px rgba(0,0,0,0.3);"> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- <img src="https://via.placeholder.com/500x350/e3f2fd/1e3c72?text=Our+Story" alt="Our Story" class="img-fluid rounded mb-4" style="box-shadow: 0 8px 25px rgba(0,0,0,0.1);"> -->
+                        <h3 style="color: #1e3c72; margin-bottom: 20px;">Our Story</h3>
+                        <p>Zee's Store was founded with a simple mission: to provide high-quality products at affordable prices while delivering exceptional customer service. We believe that shopping should be an enjoyable experience, not a chore.</p>
+                        <p>Our team of dedicated professionals works tirelessly to curate the best products from around the world, ensuring that every item in our catalog meets our strict quality standards.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- <img src="https://via.placeholder.com/500x350/f3e5f5/1e3c72?text=Our+Values" alt="Our Values" class="img-fluid rounded mb-4" style="box-shadow: 0 8px 25px rgba(0,0,0,0.1);"> -->
+                        <h3 style="color: #1e3c72; margin-bottom: 20px;">Our Values</h3>
+                        <ul style="color: #333;">
+                            <li><strong>Quality First:</strong> Every product is carefully selected and tested</li>
+                            <li><strong>Customer Focus:</strong> Your satisfaction is our top priority</li>
+                            <li><strong>Innovation:</strong> We constantly improve our platform and services</li>
+                            <li><strong>Sustainability:</strong> We care about our planet and future generations</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Team Section -->
+                <div class="row" style="margin-top: 50px;">
+                    <div class="col-12">
+                        <h3 style="color: #1e3c72; margin-bottom: 30px; text-align: center;">Meet Our Team</h3>
+                    </div>
+                    <div class="col-md-3 col-sm-6 text-center mb-4">
+                        <!-- <img src="https://via.placeholder.com/150x150/2a5298/ffffff?text=CEO" alt="CEO" class="rounded-circle mb-3" style="box-shadow: 0 8px 25px rgba(0,0,0,0.2);"> -->
+                        <h5 style="color: #1e3c72;">John Smith</h5>
+                        <p style="color: #666;">Chief Executive Officer</p>
+                    </div>
+                    <div class="col-md-3 col-sm-6 text-center mb-4">
+                        <!-- <img src="https://via.placeholder.com/150x150/2a5298/ffffff?text=CTO" alt="CTO" class="rounded-circle mb-3" style="box-shadow: 0 8px 25px rgba(0,0,0,0.2);"> -->
+                        <h5 style="color: #1e3c72;">Sarah Johnson</h5>
+                        <p style="color: #666;">Chief Technology Officer</p>
+                    </div>
+                    <div class="col-md-3 col-sm-6 text-center mb-4">
+                        <!-- <img src="https://via.placeholder.com/150x150/2a5298/ffffff?text=CMO" alt="CMO" class="rounded-circle mb-3" style="box-shadow: 0 8px 25px rgba(0,0,0,0.2);"> -->
+                        <h5 style="color: #1e3c72;">Mike Chen</h5>
+                        <p style="color: #666;">Chief Marketing Officer</p>
+                    </div>
+                    <div class="col-md-3 col-sm-6 text-center mb-4">
+                        <!-- <img src="https://via.placeholder.com/150x150/2a5298/ffffff?text=COO" alt="COO" class="rounded-circle mb-3" style="box-shadow: 0 8px 25px rgba(0,0,0,0.2);"> -->
+                        <h5 style="color: #1e3c72;">Lisa Williams</h5>
+                        <p style="color: #666;">Chief Operations Officer</p>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 40px;">
+                    <a href="#" class="btn-custom" onclick="showPage('products')">Start Shopping</a>
+                    <a href="#" class="btn-custom" onclick="showPage('contact')">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Gallery Page -->
+    <div class="page" id="products">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li class="breadcrumb-item active">Product Gallery</li>
+                </ol>
+            </nav>
+
+            <div class="hero-section">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="hero-title">Product Gallery</h1>
+                        <p class="hero-subtitle">Discover Our Amazing Collection</p>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- <img src="https://via.placeholder.com/400x300/ffd700/1e3c72?text=Product+Gallery" alt="Product Gallery" class="img-fluid rounded" style="box-shadow: 0 10px 30px rgba(0,0,0,0.3);"> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-grid" id="productGrid">
+                <!-- Men's Products -->
+                <div class="product-card gallery-item" data-category="men">
+                    <img src="Uploads/Business_shirt.webp" alt="Classic Business Shirt" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Classic Business Shirt</h5>
+                        <p>Professional and comfortable</p>
+                        <div class="price">₹1,299</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card gallery-item" data-category="men">
+                    <img src="Uploads/Denim_Jeans.webp" alt="Denim Jeans" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Denim Jeans</h5>
+                        <p>Premium quality denim</p>
+                        <div class="price">₹2,499</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card gallery-item" data-category="men">
+                    <img src="Uploads/winter_jacket2.jpeg" alt="Winter Jacket" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Winter Jacket</h5>
+                        <p>Warm and stylish winter wear</p>
+                        <div class="price">₹4,999</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card gallery-item" data-category="men">
+                    <img src="Uploads/sports_shoes.webp" alt="Sports Shoes" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Sports Shoes</h5>
+                        <p>Comfortable running shoes</p>
+                        <div class="price">₹3,299</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card gallery-item" data-category="men">
+                    <img src="Uploads/t-shirts.webp" alt="Casual T-Shirt" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Casual T-Shirt</h5>
+                        <p>Comfortable everyday wear</p>
+                        <div class="price">₹899</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card gallery-item" data-category="men">
+                    <img src="Uploads/trousers.webp" alt="Formal Trousers" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Formal Trousers</h5>
+                        <p>Professional office wear</p>
+                        <div class="price">₹1,899</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <!-- Women's Products -->
+                <div class="product-card gallery-item" data-category="women">
+                    <img src="Uploads/evening.webp" alt="Elegant Evening Dress" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Elegant Evening Dress</h5>
+                        <p>Perfect for special occasions</p>
+                        <div class="price">₹3,999</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card gallery-item" data-category="women">
+                    <img src="Uploads/blouse.webp" alt="Casual Blouse" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Casual Blouse</h5>
+                        <p>Comfortable and stylish</p>
+                        <div class="price">₹1,799</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card gallery-item" data-category="women">
+                    <img src="Uploads/heels.webp" alt="Designer Heels" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Designer Heels</h5>
+                        <p>Elegant and comfortable heels</p>
+                        <div class="price">₹2,899</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card gallery-item" data-category="women">
+                    <img src="Uploads/bags.webp" alt="Luxury Handbag" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Luxury Handbag</h5>
+                        <p>Premium leather handbag</p>
+                        <div class="price">₹5,499</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card gallery-item" data-category="women">
+                    <img src="Uploads/summer bags.webp" alt="Summer Dress" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Summer Dress</h5>
+                        <p>Light and breezy summer wear</p>
+                        <div class="price">₹2,299</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card gallery-item" data-category="women">
+                    <img src="Uploads/jeans_of_woman.jpeg" alt="Designer Jeans" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Designer Jeans</h5>
+                        <p>Trendy and comfortable fit</p>
+                        <div class="price">₹2,799</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <!-- Kids Products -->
+                <div class="product-card gallery-item" data-category="kids">
+                    <img src="Uploads/kids_tshirts.webp" alt="Kids T-Shirt" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Kids T-Shirt</h5>
+                        <p>Fun and colorful designs</p>
+                        <div class="price">₹699</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card gallery-item" data-category="kids">
+                    <img src="Uploads/shorts.webp" alt="Kids Shorts" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Kids Shorts</h5>
+                        <p>Perfect for playtime</p>
+                        <div class="price">₹899</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card gallery-item" data-category="kids">
+                    <img src="Uploads/kids_shoes.webp" alt="Kids Sneakers" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Kids Sneakers</h5>
+                        <p>Comfortable and durable</p>
+                        <div class="price">₹1,499</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card gallery-item" data-category="kids">
+                    <img src="Uploads/kids_bag.webp" alt="School Backpack" class="product-image-real">
+                    <div class="card-body">
+                        <h5>School Backpack</h5>
+                        <p>Spacious and lightweight</p>
+                        <div class="price">₹1,199</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card gallery-item" data-category="kids">
+                    <img src="Uploads/party_dress.jpg" alt="Kids Dress" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Kids Party Dress</h5>
+                        <p>Adorable party outfit</p>
+                        <div class="price">₹1,599</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card gallery-item" data-category="kids">
+                    <img src="Uploads/kids_winter.jpg" alt="Kids Jacket" class="product-image-real">
+                    <div class="card-body">
+                        <h5>Kids Winter Jacket</h5>
+                        <p>Warm and cozy for winter</p>
+                        <div class="price">₹2,299</div>
+                        <a href="#" class="btn-custom" style="margin: 10px 0;">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Page -->
+    <div class="page" id="testimonials">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li class="breadcrumb-item active">Testimonials</li>
+                </ol>
+            </nav>
+
+            <div class="hero-section">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="hero-title">Customer Testimonials</h1>
+                        <p class="hero-subtitle">See What Our Customers Say About Us</p>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- <img src="https://via.placeholder.com/400x300/ffd700/1e3c72?text=Happy+Customers" alt="Happy Customers" class="img-fluid rounded" style="box-shadow: 0 10px 30px rgba(0,0,0,0.3);"> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <!-- <img src="https://via.placeholder.com/60x60/2a5298/ffffff?text=A" alt="Amit Sharma" class="rounded-circle me-3" style="width: 60px; height: 60px;"> -->
+                            <div>
+                                <h5 style="color: #1e3c72; margin: 0;">Amit Sharma</h5>
+                                <div style="color: #ffd700;">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p>"Amazing quality products and super fast delivery! I've been shopping here for over a year and never been disappointed. The customer service is exceptional."</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <!-- <img src="https://via.placeholder.com/60x60/2a5298/ffffff?text=P" alt="Priya Patel" class="rounded-circle me-3" style="width: 60px; height: 60px;"> -->
+                            <div>
+                                <h5 style="color: #1e3c72; margin: 0;">Priya Patel</h5>
+                                <div style="color: #ffd700;">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p>"Love the variety and quality! The website is easy to navigate and the checkout process is smooth. My kids love their new clothes from here."</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <!-- <img src="https://via.placeholder.com/60x60/2a5298/ffffff?text=R" alt="Rahul Kumar" class="rounded-circle me-3" style="width: 60px; height: 60px;"> -->
+                            <div>
+                                <h5 style="color: #1e3c72; margin: 0;">Rahul Kumar</h5>
+                                <div style="color: #ffd700;">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p>"Excellent service and great prices! The return policy is very customer-friendly. I recommend Zee's Store to all my friends and family."</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <!-- <img src="https://via.placeholder.com/60x60/2a5298/ffffff?text=S" alt="Sneha Gupta" class="rounded-circle me-3" style="width: 60px; height: 60px;"> -->
+                            <div>
+                                <h5 style="color: #1e3c72; margin: 0;">Sneha Gupta</h5>
+                                <div style="color: #ffd700;">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p>"The best online shopping experience I've ever had! Fast shipping, great packaging, and the quality of products exceeded my expectations."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="#" class="btn-custom" onclick="showPage('signup')">Join Our Happy Customers</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Us Page -->
+    <div class="page" id="contact">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li class="breadcrumb-item active">Contact Us</li>
+                </ol>
+            </nav>
+
+            <div class="hero-section">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="hero-title">Contact Us</h1>
+                        <p class="hero-subtitle">We'd Love to Hear From You</p>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- <img src="https://via.placeholder.com/400x300/ffd700/1e3c72?text=Contact+Us" alt="Contact Us" class="img-fluid rounded" style="box-shadow: 0 10px 30px rgba(0,0,0,0.3);"> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-container">
+                        <h3 style="color: #1e3c72; margin-bottom: 30px;">Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Full Name *</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Email Address *</label>
+                                        <input type="email" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Subject *</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Message *</label>
+                                <textarea class="form-control" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-custom">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-container">
+                        <!-- <img src="https://via.placeholder.com/350x200/e3f2fd/1e3c72?text=Office+Location" alt="Office Location" class="img-fluid rounded mb-4" style="box-shadow: 0 8px 25px rgba(0,0,0,0.1);"> -->
+                        <h3 style="color: #1e3c72; margin-bottom: 30px;">Get In Touch</h3>
+                        <div class="mb-4">
+                            <h5 style="color: #2a5298;">📍 Address</h5>
+                            <p>123 Business Street<br>New Citylight, Surat<br>Gujarat, India - 395007</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5 style="color: #2a5298;">📞 Phone</h5>
+                            <p>+91 98765 43210</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5 style="color: #2a5298;">✉️ Email</h5>
+                            <p>support@Zee's Store.com</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5 style="color: #2a5298;">🕒 Business Hours</h5>
+                            <p>Monday - Saturday: 9:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up/Sign In Page -->
+    <div class="page" id="signup">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li class="breadcrumb-item active">Sign Up/Sign In</li>
+                </ol>
+            </nav>
+
+            <div class="hero-section">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="hero-title">Join Zee's Store</h1>
+                        <p class="hero-subtitle">Create Your Account or Sign In</p>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- <img src="https://via.placeholder.com/400x300/ffd700/1e3c72?text=Join+Us" alt="Join Zee's Store" class="img-fluid rounded" style="box-shadow: 0 10px 30px rgba(0,0,0,0.3);"> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="text-center" style="margin-bottom: 30px;">
+                        <a href="#" class="btn-custom" onclick="toggleAuthForm('signup')">Sign Up</a>
+                        <a href="#" class="btn-custom" onclick="toggleAuthForm('signin')">Sign In</a>
+                    </div>
+
+                    <!-- Sign Up Form -->
+                    <div class="form-container" id="signupForm">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <h3 style="color: #1e3c72; margin-bottom: 30px; text-align: center;">Create New Account</h3>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">First Name *</label>
+                                                <input type="text" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Last Name *</label>
+                                                <input type="text" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Email Address *</label>
+                                        <input type="email" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Phone Number *</label>
+                                        <input type="tel" class="form-control" required>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Password *</label>
+                                                <input type="password" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Confirm Password *</label>
+                                                <input type="password" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Address</label>
+                                        <textarea class="form-control" rows="3"></textarea>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="terms" required>
+                                        <label class="form-check-label" for="terms">
+                                            I agree to the Terms & Conditions and Privacy Policy *
+                                        </label>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn-custom">Create Account</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sign In Form -->
+                    <div class="form-container" id="signinForm" style="display: none;">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <h3 style="color: #1e3c72; margin-bottom: 30px; text-align: center;">Welcome Back</h3>
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Email Address *</label>
+                                        <input type="email" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Password *</label>
+                                        <input type="password" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="remember">
+                                        <label class="form-check-label" for="remember">
+                                            Remember me
+                                        </label>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn-custom">Sign In</button>
+                                        <div style="margin-top: 20px;">
+                                            <a href="#" style="color: #2a5298;">Forgot Password?</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- <img src="https://via.placeholder.com/150x80/ffd700/1e3c72?text=Zee's Store+Logo" alt="Zee's Store Logo" class="img-fluid mb-3" style="max-height: 60px;"> -->
+                    <h5 style="color: #ffd700;">Zee's Store</h5>
+                    <p>Your trusted e-commerce partner for quality products and exceptional service.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5 style="color: #ffd700;">Quick Links</h5>
+                    <p><a href="#" onclick="showPage('home')" style="color: white; text-decoration: none;">Home</a></p>
+                    <p><a href="#" onclick="showPage('about')" style="color: white; text-decoration: none;">About Us</a></p>
+                    <p><a href="#" onclick="showPage('products')" style="color: white; text-decoration: none;">Products</a></p>
+                    <p><a href="#" onclick="showPage('contact')" style="color: white; text-decoration: none;">Contact</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h5 style="color: #ffd700;">Follow Us</h5>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <img src="Uploads/Facebook.png" alt="Facebook" class="rounded social-icon">
+                        <img src="Uploads/Instagram.png" alt="Instagram" class="rounded social-icon">
+                        <img src="Uploads/Twitter.jpg" alt="Twitter" class="rounded social-icon">
+                        <img src="Uploads/Linkdin.png" alt="LinkedIn" class="rounded social-icon">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h5 style="color: #ffd700;">Secure Shopping By Zee's Store</h5>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <!-- <img src="https://via.placeholder.com/60x40/ffffff/1e3c72?text=SSL" alt="SSL Secure" class="img-fluid">
+                        <img src="https://via.placeholder.com/60x40/ffffff/1e3c72?text=VISA" alt="Visa" class="img-fluid">
+                        <img src="https://via.placeholder.com/60x40/ffffff/1e3c72?text=MC" alt="Mastercard" class="img-fluid"> -->
+                    </div>
+                </div>
+            </div>
+            <hr style="border-color: #ffd700; margin: 30px 0;">
+            <div class="text-center">
+                <p>&copy; 2025 Zee's Store. All rights reserved. | Developed for C.B. Patel Computer College</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="Ivan.js"></script>
+</body>
+</html>
