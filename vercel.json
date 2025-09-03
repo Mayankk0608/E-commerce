@@ -2,7 +2,8 @@
   "routes": [
     {
       "src": "/",
-      "dest": "/Ivan.html"
+      "dest": "/Zee.html"
     }
   ]
+
 }
